@@ -1,13 +1,7 @@
 import keyboard
 import pyperclip
 import time
-
-# Define your text snippets here
-snippets = {
-    "addr": "123 Main St, Springfield, USA",
-    "email": "your.email@example.com",
-    "sig": "Best regards,\nYour Name"
-}
+from config import snippets
 
 last_execution_time = 0
 debounce_interval = 0.3  # 300 milliseconds
@@ -29,8 +23,9 @@ def replace_snippet():
             keyboard.send('backspace')
         time.sleep(0.1)  # Ensure the word is deleted
         
-        # Type out the snippet
-        keyboard.write(snippets[word])
+        # Type out the snippet without leading space
+        expanded_text = snippets[word].lstrip()  # Remove leading whitespace
+        keyboard.write(expanded_text)
     
     # Explicitly release Ctrl and Space keys
     keyboard.release('ctrl')
@@ -42,13 +37,13 @@ def get_last_word():
     keyboard.send('ctrl+shift+left')  # Select the last word
     keyboard.send('ctrl+c')           # Copy the selection to clipboard
     time.sleep(0.1)                   # Wait for clipboard to update
-    word = pyperclip.paste().strip()
+    word = pyperclip.paste().strip()  # Remove any leading/trailing whitespace
     pyperclip.copy(original_clipboard)  # Restore original clipboard content
     keyboard.send('right')            # Move cursor back to end
     return word
 
 # Register a listener for Ctrl + Space to detect end of word
-keyboard.add_hotkey('ctrl+space', replace_snippet, suppress=True)
+keyboard.add_hotkey('ctrl+space', replace_snippet, suppress=True, trigger_on_release=True)
 
 print("Text expander is running... Press ESC to stop.")
 keyboard.wait('esc')
