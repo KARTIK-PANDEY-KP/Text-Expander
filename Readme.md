@@ -66,13 +66,8 @@ snippets = {
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/yourusername/python-text-expander/issues) if you want to contribute.
+Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/yourusername/text-expander/issues) if you want to contribute.
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-```
-
-This README provides an overview of your script, installation instructions, usage guidelines, an explanation of how it works, and sections for customization, limitations, contributions, and licensing. You may want to adjust the content based on your specific needs or add more details as necessary.
-
-Would you like me to explain or expand on any part of this README?
