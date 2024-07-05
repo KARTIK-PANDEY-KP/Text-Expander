@@ -1,4 +1,3 @@
-markdown
 # Text Expander
 
 This Python script provides a simple text expansion functionality, allowing you to quickly insert predefined text snippets using custom shortcuts.
