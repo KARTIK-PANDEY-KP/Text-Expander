@@ -1,4 +1,4 @@
-# Text Expander
+# Text Expander (Windows)
 <div align="center">
   <img src="assets/readme_image.png" alt="BANNER_IMAGE"/>
 </div>
